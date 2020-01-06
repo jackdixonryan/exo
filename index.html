@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mars Simulation</title>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       body {
@@ -70,46 +73,63 @@
   </head>
   <body>
     <section>
-      <h2 style="text-align:center;font-size:2em;padding:1em;">Mars, Sol <span id="sol"></span></h2>
+      <h2 style="text-align:center;font-size:2em;padding:1em;">
+        Mars, Sol <span id="sol"></span>
+      </h2>
       <div class="atmos">
         <div id="mars"></div>
       </div>
       <p style="text-align: justify; padding:1em; width: 16em; margin: 0 auto;">
-        Mars, terraformed. Deceptively, this is actually rotating. Check back on this page later and you'll be able to see a new part of the not-so-red planet! Since a Martian sol is even longer than Earth's, sitting here and watching it will be like watching paint dry.
+        Mars, terraformed. Deceptively, this is actually rotating. Check back on
+        this page later and you'll be able to see a new part of the not-so-red
+        planet! Since a Martian sol is even longer than Earth's, sitting here
+        and watching it will be like watching paint dry.
+      </p>
+      <p style="text-align: justify; padding:1em; width: 16em; margin: 0 auto;">
+        Credit to u/MrNowYouSeeMe for the terraformed map posted to r/MapPorn
+        and a lot of CSS sites for getting some of the code done. You can check
+        out the easy-to-code source at
+        <a
+          href="https://github.com/jackdixonryan/just-mars"
+          style="color:#95c6fe;"
+          >the GitHub repo.</a
+        >
       </p>
     </section>
   </body>
 
   <script>
-
     const secondsInSol = 88775;
     // the date & time of the web deployment for the page.
-    const startingDate = new Date("2020-01-06T15:30:00");
+    const startingDate = new Date("2020-01-06T15:49:00");
     const pageLoadDate = new Date();
     const diff = startingDate.getTime() - pageLoadDate.getTime();
     const seconds = Math.abs(diff / 1000);
 
-    // first we use the seconds to determine where Mar's position should be. basically, we use modulo to get the number of seconds we need to account for since the last revolution. 
+    // first we use the seconds to determine where Mar's position should be. basically, we use modulo to get the number of seconds we need to account for since the last revolution.
     const currentOffset = seconds % secondsInSol;
-     
+
     // and we have to take that number and use a proportion to convert it to a px offset. So, currentOffset is to total seconds as x is to max pixels, eg, offset is 250s, so the proportion should be 250s is to 88775s as x is to 1024px;
 
     // 250      x
     // ----     -
     // 88775    1024
-    // because I'm not sure if px float values are respected, and because I don't feel the need to be THAT precise, I'm going to leave it to round to the nearest decimal place.  
+    // because I'm not sure if px float values are respected, and because I don't feel the need to be THAT precise, I'm going to leave it to round to the nearest decimal place.
     const pixelOffset = Math.round((currentOffset * 1024) / 88775);
-    console.log("Mars should be pre-rotated by", pixelOffset, "px.")
+    console.log("Mars should be pre-rotated by", pixelOffset, "px.");
 
     const mars = document.getElementById("mars");
     mars.style.backgroundPosition = `${pixelOffset}px 0`;
 
+    // the rest is easy, just determine the num sols passed since deploy and bada boom, we've got a plain js website that's 150% useless but totally cool.
     const solsPassedSinceDeploy = Math.floor(seconds / secondsInSol);
 
-    console.log(solsPassedSinceDeploy, "sols have passed since the deployment of this page.")
+    console.log(
+      solsPassedSinceDeploy,
+      "sols have passed since the deployment of this page."
+    );
 
     const sol = document.getElementById("sol");
     sol.textContent = solsPassedSinceDeploy;
-
   </script>
 </html>
