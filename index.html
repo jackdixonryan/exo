@@ -115,7 +115,7 @@
     // ----     -
     // 88775    1024
     // because I'm not sure if px float values are respected, and because I don't feel the need to be THAT precise, I'm going to leave it to round to the nearest decimal place.
-    const pixelOffset = Math.round((currentOffset * 1024) / 88775);
+    const pixelOffset = Math.round(((currentOffset * 1024) / 88775) / 2);
     console.log("Mars should be pre-rotated by", pixelOffset, "px.");
 
     const mars = document.getElementById("mars");
