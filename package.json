@@ -1,0 +1,29 @@
+{
+  "name": "exo",
+  "version": "1.0.0",
+  "description": "It's literally just Mars. Take a peep at the file if you're interesting in the source code. That's about it.",
+  "main": "gCalculator.js",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "node-cron": "^2.0.3",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackdixonryan/just-mars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackdixonryan/just-mars/issues"
+  },
+  "homepage": "https://github.com/jackdixonryan/just-mars#readme"
+}
