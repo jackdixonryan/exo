@@ -4,10 +4,16 @@
   "description": "It's literally just Mars. Take a peep at the file if you're interesting in the source code. That's about it.",
   "main": "gCalculator.js",
   "dependencies": {
+    "apollo-server-express": "^2.9.16",
     "axios": "^0.19.1",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
+    "cron": "^1.8.2",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "firebase": "^7.7.0",
+    "graphql": "^14.5.8",
     "morgan": "^1.9.1",
     "node-cron": "^2.0.3",
     "pug": "^2.0.4"
