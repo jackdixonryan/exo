@@ -4,7 +4,10 @@ const schema = require("./schema/index");
 const typeDefs = schema();
 const queries = require("./queries");
 const cors = require("cors");
-const PORT = 9090 || process.env.PORT;
+const morgan = require("morgan");
+const PORT = process.env.PORT || 9090;
+
+app.use(morgan("dev"));
 
 const resolvers = {
   Query: {
