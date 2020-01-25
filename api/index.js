@@ -7,8 +7,6 @@ const cors = require("cors");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 9090;
 
-app.use(morgan("dev"));
-
 const resolvers = {
   Query: {
     ...queries
@@ -17,6 +15,8 @@ const resolvers = {
 
 const app = express();
 app.use(cors());
+app.use(morgan("dev"));
+
 
 const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app, path: "/", cors: true });
