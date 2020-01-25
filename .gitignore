@@ -2,4 +2,3 @@ node_modules
 package-lock.json
 .env
 exoplanets.json
-names.json

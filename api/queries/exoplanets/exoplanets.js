@@ -1,5 +1,5 @@
 async function exoplanet(parent, args, ctx, info) {
-  const db = require("../../config");
+  const db = require("../../db");
   const query = await db
     .collection("exoplanets")
     .doc(args.name)
