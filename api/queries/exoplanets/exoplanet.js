@@ -3,6 +3,7 @@ async function exoplanets(parent, args, ctx, info) {
   console.log(args);
   const query = await db
     .collection("exoplanets")
+    .limit(200)
     .get();
   const exoplanets = [];
   query.forEach(record => {
