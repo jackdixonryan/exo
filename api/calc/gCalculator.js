@@ -8,6 +8,7 @@ function gravity(mass, radius) {
 
 const earthGravity = gravity(5.972e24, 6.371e6);
 const marsGravity = gravity(6.39e23, 3.3896e6);
+console.log(compareGravity(earthGravity, marsGravity));
 // console.log(earthGravity);
 // console.log(marsGravity);
 
@@ -31,22 +32,6 @@ function calculateWeight(weight, baseGravity, comparator) {
   return newWeight.toFixed(2);
 }
 
-const weightOnMars = calculateWeight(175, earthGravity, marsGravity);
-
-
-// Time for a test: How much does my Phone weigh on Jupiter?
-
-const jupiterGravity = gravity(1.898e27, 69.911e6);
-const myPhonesWeight = 0.325;
-const myPhonesWeightOnJupiter = calculateWeight(myPhonesWeight, earthGravity, jupiterGravity);
-const probablyMyArmsWeight = 175*0.065;
-
-// 5.972e24, 6.371e6
-const TOI700DRadius = 6.371e6 * 1.19;
-const TOI700DMass = 5.972e24 * 1.72;
-const TOI77dGravity = gravity(TOI700DMass, TOI700DRadius);
-const comparative = compareGravity(earthGravity, TOI77dGravity);
-// console.log(comparative);
-
-const TOI700DWeight = calculateWeight(probablyMyArmsWeight, earthGravity, TOI77dGravity);
-console.log(TOI700DWeight);
+module.exports = {
+  calculateGravity: gravity
+}
